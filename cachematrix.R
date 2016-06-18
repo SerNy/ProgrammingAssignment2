@@ -2,7 +2,8 @@
 
 ##  This function creates a special "matrix" object that can caches its inverse.
 
-makeCacheMatrix <- function(xx = matrix(data_xx, nrow = n, ncol = n)) {
+makeCacheMatrix <- function(xx = matrix(data_xx, nrow = n, ncol = n)) { #ncol = nrow = n, within n, the number 
+## of rows or colonnes to provide as arguments to makeCacheMatrix function.
   xx_1 <- NULL
   set <- function(yy) {
     xx <<- yy
@@ -30,3 +31,5 @@ cacheSolve <- function(xx, ...) { ## Return a matrix that is the inverse of 'xx'
   xx$setsolve(xx_1)
   xx_1
 }
+
+cacheSolve(xx = makeCacheMatrix(xx = matrix(c(2, 1, 2, 0, 1, 0, -1, 0, 1), 3, 3))) #An example to test the provided code.
